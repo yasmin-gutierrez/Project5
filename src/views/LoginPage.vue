@@ -26,16 +26,62 @@ const logUserIn = async () => {
 </script> 
 
 <template>
-    <form class="m-10" @submit.prevent>
+    <form class="m-10 p-6 form" @submit.prevent>
         <div>
-            <label for="username" class="block mb-2 font-bold">Username</label>
-            <input id="username" v-model="username" type="text" placeholder="Username">
+            <label for="username" class="block mb-2 font-bold text-blue-300">Username</label>
+            <input id="username" v-model="username" type="text" placeholder="Enter your username" class="input">
         </div>
-        <div>
-            <label for="password" class="block mb-2 font-bold" >Password</label>
-            <input id="password"  v-model="password" type="password" placeholder="Password"> 
+        <div class="mt-4">
+            <label for="password" class="block mb-2 font-bold text-blue-300">Password</label>
+            <input id="password" v-model="password" type="password" placeholder="Enter your password" class="input"> 
         </div>
 
-        <button @click="logUserIn" class="bg-green-500 mt-4 px-4 py-2 hover:bg-green-800 hover:text-white">LOGIN</button>
+        <button @click="logUserIn" class="button mt-6">LOGIN</button>
     </form>
 </template>
+
+<style scoped>
+
+.form {
+    background: #1a1a2e; 
+    border: 2px solid #007cf0; 
+    border-radius: 10px;
+    width: 300px;
+    margin: auto;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #007cf0;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.input:focus {
+    border-color: #00dfd8;
+}
+
+.button {
+    width: 100%;
+    padding: 10px;
+    background: #007cf0;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #0056b3;
+}
+</style>

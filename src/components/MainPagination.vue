@@ -23,13 +23,52 @@ const nextPage = () => {
 
 <template>
     <div class="flex justify-center gap-4 p-8">
+        <button @click="prevPage" :disabled="activePage === 1" 
+            class="pagination-button"
+        >
+            PREV
+        </button>
 
-        <button @click="prevPage" :disabled="activePage === 1" class="rounded-md bg-slate-100 p-2 font font-medium text-slate-700 shadow-md">PREV</button>
+        <button 
+            v-for="page in pages" 
+            :key="page" 
+            class="pagination-button" 
+            :class="page === activePage ? 'active-page' : ''"
+        >
+            {{ page }}
+        </button>
 
-        <button v-for="page in pages" :key="page" class="rounded-md bg-slate-100 p-2 font-medium text-slate-700 shadow-md" :class="page === activePage ? 'bg-yellow-700 text-slate-100': ''"> {{ page }}</button>
-
-        <button @click="nextPage" :disabled="activePage === pages" class="rounded-md bg-slate-100 p-2 font font-medium text-slate-700 shadow-md">NEXT</button> 
-
+        <button @click="nextPage" :disabled="activePage === pages" class="pagination-button">NEXT</button> 
     </div>
-
 </template>
+
+<style scoped>
+
+.pagination-button {
+    background: #1a1a2e; 
+    border: 1px solid #007cf0; 
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.pagination-button:hover {
+    background: #0f3460; 
+}
+
+.active-page {
+    background: #007cf0;
+    color: white;
+    border: 1px solid #0056b3;
+}
+
+.pagination-button:disabled {
+    background: #333;
+    color: #777;
+    cursor: not-allowed;
+    border-color: #444;
+}
+</style>

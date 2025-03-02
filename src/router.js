@@ -6,11 +6,11 @@ import LoginPage from './views/LoginPage.vue'
 import SettingsPage from './views/SettingsPage.vue'
 
 const routes = [
-  { path: '/', name: 'Home', component: HomePage },
-  { path: '/other', name: 'Other', component: () => import('@/views/OtherPage.vue') },
-  { path: '/employees/:id', name: 'CardDetail', component: CardDetail },
-  { path: '/login', name: 'LoginPage', component: LoginPage },
-  { path: '/settings', name: 'SettingsPage', component: SettingsPage },
+  { path: '/Project5/', name: 'Home', component: HomePage },
+  { path: '/Project5/other', name: 'Other', component: () => import('@/views/OtherPage.vue') },
+  { path: '/Project5/employees/:id', name: 'CardDetail', component: CardDetail },
+  { path: '/Project5/login', name: 'LoginPage', component: LoginPage },
+  { path: '/Project5/settings', name: 'SettingsPage', component: SettingsPage },
 ]
 
 const router = createRouter({
